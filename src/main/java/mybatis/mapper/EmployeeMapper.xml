@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.EmployeeMapper">
+	<select id="getEmployeeList" resultType="mybatis.entity.EmployeeEntity">
+		SELECT
+			*
+		FROM
+			employee
+		<where>
+			<if test="employeeNumber != null">
+				and employee_number = #{employeeNumber}
+			</if>
+			<if test="affiliation != null">
+				and affiliation = #{affiliation}
+			</if>
+			<if test="name != null">
+				and name = #{name}
+			</if>
+			<if test="gender != null">
+				and gender = #{gender}
+			</if>
+			<if test="birthday != null">
+				and birthday = #{birthday}
+			</if>
+			<if test="zipcode != null">
+				and zipcode = #{zipcode}
+			</if>
+			<if test="telephoneNumber != null">
+				and telephone_number = #{telephoneNumber}
+			</if>
+			<if test="mailAddress != null">
+				and mail_address = #{mailAddress}
+			</if>
+		</where>
+	</select>
+	<select id="hasDuplicationCheck" resultType="Long">
+		SELECT
+			COUNT(*)
+		FROM
+			Employee
+		<where>
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="employeeNumber != null">
+				and employee_number = #{employeeNumber}
+			</if>
+		</where>
+	</select>
+	<insert id ="insertEmployee">
+		INSERT INTO Employee(
+			employee_number
+			, affiliation
+			, name
+			, gender
+			, birthday
+			, zipcode
+			, address
+			, telephone_number
+			, mail_address
+			, date_of_employment
+			, created_at
+			, updated_at
+			, deleted_at
+		)
+		VALUES(
+			#{employeeNumber}
+			, #{affiliation}
+			, #{name}
+			, #{gender}
+			, #{birthday}
+			, #{zipcode}
+			, #{address}
+			, #{telephoneNumber}
+			, #{mailAddress}
+			, #{dateOfEmployment}
+			, NOW()
+			, NOW()
+			, NULL
+		)
+	</insert>
+</mapper>

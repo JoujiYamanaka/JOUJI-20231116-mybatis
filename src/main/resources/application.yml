@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:contacts
+    username: h2user
+    password:
+    tomcat:
+      maxActive: 15
+      max-idle: 10
+      min-idle: 5
+      initial-size: 2
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 600000
+  sql:
+    init:
+      mode: always
+  messages:
+    basename: messages_ja
+    encoding: UTF-8
+    fallback-to-system-locale: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  thymeleaf:
+    check-template-location: false
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: info
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

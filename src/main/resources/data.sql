@@ -1,0 +1,2 @@
+insert into employee(employee_number, affiliation, name, gender, birthday, zipcode, address, telephone_number, mail_address, date_of_employment, created_at, updated_at, deleted_at)
+values('Eitw001', '開発部', '日本 太郎', '男', '2021-09-20', '999-9999', '神奈川県横浜市中区日本大通1', null, 'abc@aaa.evolveit.jp', null, '2021-09-20 00:00:000', '2021-09-20 00:00:000', null);
