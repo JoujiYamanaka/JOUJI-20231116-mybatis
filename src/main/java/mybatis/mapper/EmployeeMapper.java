@@ -14,7 +14,7 @@ import mybatis.request.EmployeeRequest;
 @Transactional
 public interface EmployeeMapper {
 
-	/** 社員情報取得 */
+	/** 社員情報登録 */
 	public Long insertEmployee(EmployeeModel employeeModel);
 
 	/** 社員情報取得 */
